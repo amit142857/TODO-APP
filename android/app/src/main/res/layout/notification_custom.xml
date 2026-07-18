@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@drawable/bg_notification_card">
+
+    <!-- Avatar + overlapping badge -->
+    <FrameLayout
+        android:id="@+id/notification_avatar_container"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/notification_profile_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/profile_photo"
+            android:contentDescription="Profile picture" />
+
+        <ImageView
+            android:id="@+id/notification_badge"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="bottom|end"
+            android:src="@drawable/ic_notification_badge"
+            android:contentDescription="Badge" />
+
+    </FrameLayout>
+
+    <!-- Title + inline "· now" timestamp -->
+    <LinearLayout
+        android:id="@+id/notification_title_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_toEndOf="@id/notification_avatar_container"
+        android:layout_alignTop="@id/notification_avatar_container"
+        android:layout_marginStart="12dp">
+
+        <TextView
+            android:id="@+id/notification_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" · "
+            android:textSize="13sp"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/notification_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="now"
+            android:textSize="13sp"
+            android:textColor="#9E9E9E" />
+
+    </LinearLayout>
+
+    <!-- Body text -->
+    <TextView
+        android:id="@+id/notification_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notification_title_row"
+        android:layout_toEndOf="@id/notification_avatar_container"
+        android:layout_alignStart="@id/notification_title_row"
+        android:layout_marginTop="2dp"
+        android:textSize="14sp"
+        android:textColor="#616161" />
+
+    <!-- Non-functional pill LIKE button -->
+    <TextView
+        android:id="@+id/notification_like_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notification_body"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="12dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="LIKE"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:textColor="#2196F3"
+        android:background="@drawable/bg_like_button" />
+
+</RelativeLayout>
